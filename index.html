@@ -160,10 +160,27 @@
     .nav-call{padding:9px 14px; font-size:0.74rem;}
   }
   @media (max-width:680px){
+    .topbar .wrap{
+      flex-wrap:nowrap;
+      justify-content:flex-start;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+      padding:8px 20px;
+    }
+    .topbar .wrap::-webkit-scrollbar{display:none;}
+    .topbar .wrap span{white-space:nowrap; flex-shrink:0;}
+    .nav .wrap{padding:12px 20px; gap:10px;}
+    .nav .wrap > div:first-child{display:none;}
     .nav-links{display:none;}
     .nav-desktop-contact{display:none;}
-    .nav-burger{display:flex;}
-    .brand .name{font-size:1.9rem;}
+    .nav-burger{display:flex; flex-shrink:0;}
+    .brand{flex:1; text-align:left; min-width:0;}
+    .brand .name{font-size:1.7rem;}
+    .brand .sub{font-size:0.62rem; letter-spacing:0.26em;}
+  }
+  @media (max-width:360px){
+    .nav-call{padding:8px 12px; font-size:0.68rem;}
   }
 
   /* ---------- HERO ---------- */
@@ -266,18 +283,25 @@
   .cat-circle img{width:100%; height:100%; object-fit:cover; display:block;}
   .cat-item span{font-size:0.9rem; font-weight:700;}
   @media (max-width:760px){
-    .cat-row{gap:8px;}
+    .cat-row{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      row-gap:18px;
+      column-gap:10px;
+      flex-wrap:unset;
+    }
+    .cat-item{max-width:none;}
     .cat-circle{border-width:3px; margin-bottom:8px;}
-    .cat-item span{font-size:0.72rem;}
+    .cat-item span{font-size:0.78rem; word-break:keep-all;}
   }
   @media (max-width:480px){
-    .cat-row{gap:5px;}
+    .cat-row{column-gap:8px; row-gap:16px;}
     .cat-circle{border-width:2px; border-radius:50%; margin-bottom:6px;}
-    .cat-item span{font-size:0.62rem; letter-spacing:-0.01em;}
+    .cat-item span{font-size:0.7rem; letter-spacing:-0.01em;}
   }
   @media (max-width:380px){
-    .cat-row{gap:3px;}
-    .cat-item span{font-size:0.56rem;}
+    .cat-row{column-gap:6px;}
+    .cat-item span{font-size:0.64rem;}
   }
 
   /* ---------- PICKS (SWIPE COVERFLOW) ---------- */
@@ -610,7 +634,12 @@
     .footer-brand{grid-column:1 / -1;}
   }
   @media (max-width:480px){
-    .footer-grid{grid-template-columns:1fr; text-align:left;}
+    .footer-grid{grid-template-columns:1fr; text-align:left; row-gap:36px;}
+    .footer-brand{display:flex; flex-direction:column; align-items:flex-start;}
+    .footer-social{justify-content:flex-start;}
+    .footer-col ul{align-items:flex-start;}
+    .footer-col p{max-width:none;}
+    .footer-bottom{flex-direction:column; text-align:left; align-items:flex-start; justify-content:center;}
   }
 
   /* ---------- ENHANCEMENTS ---------- */
